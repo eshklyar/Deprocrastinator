@@ -12,6 +12,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *myTextField;
 @property (strong, nonatomic) IBOutlet UIButton *addButton;
 @property (strong, nonatomic) IBOutlet UIButton *editButton;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @property NSMutableArray *toDoItemsArray;
 
@@ -21,29 +22,29 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tableView.delegate = self;
     self.toDoItemsArray = [[NSMutableArray alloc] init];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"toDoItemRow" forIndexPath:indexPath];
-    cell.textLabel.text = @"1";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"taskID" forIndexPath:indexPath];
+    cell.textLabel.text = [self.toDoItemsArray objectAtIndex:indexPath.row];
     return cell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-//    return self.toDoItemsArray.count;
-    return 3;
+    return self.toDoItemsArray.count;
 }
 
 - (IBAction)onButtonPressedAdd:(id)sender
 {
-    
+    [self.toDoItemsArray insertObject:self.myTextField.text atIndex:0];
     self.myTextField.text = @"";
     [self resignFirstResponder];
 }
 - (IBAction)onButtonPressedEdit:(id)sender {
-    
+
 }
 @end
