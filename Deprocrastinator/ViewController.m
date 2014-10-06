@@ -9,6 +9,11 @@
 #import "ViewController.h"
 
 @interface ViewController () <UITableViewDataSource, UITableViewDelegate>
+@property (strong, nonatomic) IBOutlet UITextField *myTextField;
+@property (strong, nonatomic) IBOutlet UIButton *addButton;
+@property (strong, nonatomic) IBOutlet UIButton *editButton;
+
+@property NSMutableArray *toDoItemsArray;
 
 @end
 
@@ -16,23 +21,29 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    self.toDoItemsArray = [[NSMutableArray alloc] init];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"toDoItemRow" forIndexPath:indexPath];
+    cell.textLabel.text = @"1";
     return cell;
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSInteger i =4;
-    return i;
+//    return self.toDoItemsArray.count;
+    return 3;
+}
+
+- (IBAction)onButtonPressedAdd:(id)sender
+{
+    
+    self.myTextField.text = @"";
+    [self resignFirstResponder];
+}
+- (IBAction)onButtonPressedEdit:(id)sender {
+    
 }
 @end
