@@ -41,8 +41,11 @@
 - (IBAction)onButtonPressedAdd:(id)sender
 {
     [self.toDoItemsArray insertObject:self.myTextField.text atIndex:0];
-    self.myTextField.text = @"";
+    [self.tableView cellForRowAtIndexPath:self.tableView.indexPathForSelectedRow];
+    [self.tableView numberOfRowsInSection:self.toDoItemsArray.count];
+    [self.tableView reloadData];
     [self resignFirstResponder];
+    self.myTextField.text = @"";
 }
 - (IBAction)onButtonPressedEdit:(id)sender {
 
