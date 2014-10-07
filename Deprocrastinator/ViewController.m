@@ -58,8 +58,9 @@
 
     if ([self.editButton.titleLabel.text isEqualToString:@"Done"])
     {
-        [self.toDoItemsArray removeObjectAtIndex:path.row];
         cell.accessoryType = UITableViewCellAccessoryNone;
+        [self.toDoItemsArray removeObjectAtIndex:path.row];
+        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObjects:path, nil] withRowAnimation:UITableViewRowAnimationFade];
     } else if ([self.editButton.titleLabel.text isEqualToString:@"Edit"])
     {
         if (cell.accessoryType == UITableViewCellAccessoryNone) {
