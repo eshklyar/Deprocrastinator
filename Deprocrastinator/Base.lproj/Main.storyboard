@@ -2,6 +2,8 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2pQ-67-2DQ">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Deprocrastinator-->
@@ -20,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="taskID" textLabel="Hap-yp-cpx" style="IBUITableViewCellStyleDefault" id="jfX-PH-uY3">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="taskID" textLabel="Hap-yp-cpx" style="IBUITableViewCellStyleDefault" id="jfX-PH-uY3">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jfX-PH-uY3" id="blo-Hx-Kvn">
@@ -39,9 +41,6 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="0.0" width="400" height="600"/>
-                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="vXZ-lx-hvc" id="fOg-dm-CqT"/>
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="agw-HP-BZf"/>
@@ -51,8 +50,8 @@
                                 <rect key="frame" x="0.0" y="-30" width="616" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="519" width="268" height="30"/>
+                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="16" y="563" width="286" height="30"/>
                                 </variation>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sIW-vz-ZrS">
@@ -60,8 +59,8 @@
                                 <state key="normal" title="Add">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="292" y="519" width="46" height="30"/>
+                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="310" y="563" width="38" height="30"/>
                                 </variation>
                                 <connections>
                                     <action selector="onButtonPressedAdd:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="SqZ-8c-azg"/>
@@ -72,8 +71,8 @@
                                 <state key="normal" title="Edit">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="338" y="519" width="46" height="30"/>
+                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="356" y="563" width="28" height="30"/>
                                 </variation>
                                 <connections>
                                     <action selector="onButtonPressedEdit:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="2c3-n8-Pyd"/>
@@ -81,12 +80,46 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="sIW-vz-ZrS" firstAttribute="leading" secondItem="6Js-k1-bn6" secondAttribute="trailing" constant="8" id="2aZ-tV-ey3"/>
+                            <constraint firstItem="nG3-nf-Ycy" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="4iK-78-PSg"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="sIW-vz-ZrS" secondAttribute="bottom" constant="20" id="7SM-SN-piK"/>
+                            <constraint firstItem="6Js-k1-bn6" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="Ay5-HM-YDu"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="nG3-nf-Ycy" secondAttribute="trailing" constant="-16" id="Lxr-dH-jwh"/>
+                            <constraint firstItem="OmD-P7-8Ik" firstAttribute="leading" secondItem="sIW-vz-ZrS" secondAttribute="trailing" id="PTa-BM-6RE">
+                                <variation key="widthClass=compact" constant="8"/>
+                            </constraint>
+                            <constraint firstItem="6Js-k1-bn6" firstAttribute="centerY" secondItem="OmD-P7-8Ik" secondAttribute="centerY" id="QWH-BW-Mtb"/>
+                            <constraint firstItem="OmD-P7-8Ik" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="Tlp-0n-8cw"/>
+                            <constraint firstItem="nG3-nf-Ycy" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="Wdz-9z-fMC"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="nG3-nf-Ycy" secondAttribute="bottom" id="Yd7-9l-44u">
+                                <variation key="widthClass=compact" constant="50"/>
+                            </constraint>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="OmD-P7-8Ik" secondAttribute="bottom" constant="20" id="lEh-zG-jbT"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="6Js-k1-bn6" secondAttribute="bottom" constant="20" id="nCl-cU-Dr9"/>
+                            <constraint firstItem="6Js-k1-bn6" firstAttribute="centerY" secondItem="sIW-vz-ZrS" secondAttribute="centerY" id="zqK-5Y-CFg"/>
+                        </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="nG3-nf-Ycy"/>
                                 <exclude reference="6Js-k1-bn6"/>
                                 <exclude reference="sIW-vz-ZrS"/>
                                 <exclude reference="OmD-P7-8Ik"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="7SM-SN-piK"/>
+                                <exclude reference="Yd7-9l-44u"/>
+                                <exclude reference="lEh-zG-jbT"/>
+                                <exclude reference="nCl-cU-Dr9"/>
+                                <exclude reference="Ay5-HM-YDu"/>
+                                <exclude reference="QWH-BW-Mtb"/>
+                                <exclude reference="zqK-5Y-CFg"/>
+                                <exclude reference="PTa-BM-6RE"/>
+                                <exclude reference="Tlp-0n-8cw"/>
+                                <exclude reference="2aZ-tV-ey3"/>
+                                <exclude reference="4iK-78-PSg"/>
+                                <exclude reference="Lxr-dH-jwh"/>
+                                <exclude reference="Wdz-9z-fMC"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -96,7 +129,25 @@
                                 <include reference="sIW-vz-ZrS"/>
                                 <include reference="OmD-P7-8Ik"/>
                             </mask>
+                            <mask key="constraints">
+                                <include reference="7SM-SN-piK"/>
+                                <include reference="Yd7-9l-44u"/>
+                                <include reference="lEh-zG-jbT"/>
+                                <include reference="nCl-cU-Dr9"/>
+                                <include reference="Ay5-HM-YDu"/>
+                                <include reference="QWH-BW-Mtb"/>
+                                <include reference="zqK-5Y-CFg"/>
+                                <include reference="PTa-BM-6RE"/>
+                                <include reference="Tlp-0n-8cw"/>
+                                <include reference="2aZ-tV-ey3"/>
+                                <include reference="4iK-78-PSg"/>
+                                <include reference="Lxr-dH-jwh"/>
+                                <include reference="Wdz-9z-fMC"/>
+                            </mask>
                         </variation>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="TY4-6O-DxR" appends="YES" id="BLG-iL-gJW"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Deprocrastinatooooor" id="NTd-vW-BSC"/>
                     <connections>
@@ -107,6 +158,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="TY4-6O-DxR">
+                    <connections>
+                        <action selector="onTapped:" destination="vXZ-lx-hvc" id="uU1-4S-HMi"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="753" y="366"/>
         </scene>
